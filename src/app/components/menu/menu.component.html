@@ -1,0 +1,46 @@
+<aside class="h-full bg-blue-950 text-gray-100 flex flex-col p-4 shadow-xl transition-all duration-300"
+  [ngClass]="{ 'w-64': !isCollapsed, 'w-20': isCollapsed }">
+
+  <!-- Toggle Button -->
+  <button (click)="toggleMenu()"
+    class="self-end mb-7 text-right  transition transform duration-300 cursor-pointer"
+    [ngClass]="{ 'rotate-180': isCollapsed }">
+    <img src="assets/icons/arrow.svg" class="h-8" alt="Seta"/>
+  </button>
+  
+  <!-- Logo -->
+  <div class="flex justify-center mb-10">
+    <img src="assets/images/logo.png" alt="Logo" class="w-32 h-auto " />
+  </div>
+
+  <!-- Navigation -->
+  <nav class="flex flex-col gap-2">
+    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-900 transition">
+      <span class="text-xl hover:">🏠</span>
+      <span *ngIf="!isCollapsed" class="text-base font-medium">Dashboard</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-900 transition">
+      <span class="text-xl">📄</span>
+      <span *ngIf="!isCollapsed" class="text-base font-medium">Faturas</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-900 transition">
+      <span class="text-xl">👤</span>
+      <span *ngIf="!isCollapsed" class="text-base font-medium">Fornecedores</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-900 transition">
+      <span class="text-xl">⚙️</span>
+      <span *ngIf="!isCollapsed" class="text-base font-medium">Solicitações de Compras</span>
+    </a>
+  </nav>
+
+  <!-- Footer -->
+  <div class="mt-auto pt-6 border-t border-blue-800">
+    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-900 transition">
+      <span class="text-xl">🚪</span>
+      <span *ngIf="!isCollapsed" class="text-base font-medium">Sair</span>
+    </a>
+  </div>
+</aside>

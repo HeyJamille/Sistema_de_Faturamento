@@ -1,0 +1,40 @@
+<section class="hidden md:block">
+  <h1 class="mt-8 mb-6 text-3xl font-extrabold text-blue-950">Faturas Recentes</h1>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white rounded-2xl shadow-md overflow-hidden">
+      <thead class="bg-blue-950">
+        <tr>
+          <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase rounded-tl-2xl">
+            Fornecedor
+          </th>
+          <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase">
+            Vencimento
+          </th>
+          <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase">
+            Data Enviada
+          </th>
+          <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase rounded-tr-2xl">
+            Status
+          </th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        <tr *ngFor="let data of datas" class="hover:bg-gray-50 transition">
+          <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+            {{ data.fornecedor }}
+          </td>
+          <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+            {{ data.vencimento }}
+          </td>
+          <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+            {{ data.data_enviada }}
+          </td>
+          <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+            {{ data.status }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
