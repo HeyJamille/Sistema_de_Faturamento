@@ -1,15 +1,9 @@
-<aside class="h-full bg-blue-950 text-gray-100 flex flex-col p-4 shadow-xl transition-all duration-300"
-  [ngClass]="{ 'w-64': !isCollapsed, 'w-20': isCollapsed }">
+<aside
+  class="pt-5 h-full bg-blue-950 text-gray-100 flex flex-col gap-10 p-4 shadow-xl transition-all duration-300"
+  [ngClass]="{ 'w-64 self-end': !isCollapsed, 'w-20': isCollapsed }">
 
-  <!-- Toggle Button -->
-  <button (click)="toggleMenu()"
-    class="self-end mb-7 text-right  transition transform duration-300 cursor-pointer"
-    [ngClass]="{ 'rotate-180': isCollapsed }">
-    <img src="assets/icons/arrow.svg" class="h-8" alt="Seta"/>
-  </button>
-  
   <!-- Logo -->
-  <div class="flex justify-center mb-10">
+  <div class="flex justify-center">
     <img src="assets/images/logo.png" alt="Logo" class="w-32 h-auto " />
   </div>
 
@@ -35,6 +29,18 @@
       <span *ngIf="!isCollapsed" class="text-base font-medium">Solicitações de Compras</span>
     </a>
   </nav>
+
+  <!-- Toggle Button -->
+  <button (click)="toggleMenu()"
+    class="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-900 text-white"
+    [ngClass]="{ 'rotate-180': isCollapsed }">
+
+    <img class="h-7 w-7" src="assets/icons/arrow.svg" />
+
+    <span *ngIf="!isCollapsed" class="text-base font-medium">Fechar Menu</span>
+  </button>
+
+
 
   <!-- Footer -->
   <div class="mt-auto pt-6 border-t border-blue-800">

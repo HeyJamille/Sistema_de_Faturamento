@@ -1,0 +1,61 @@
+<div *ngIf="showCard"
+  class="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-50">
+
+  <div class="bg-white rounded-2xl shadow-xl p-8 w-[500px]">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-bold text-blue-950">Nova Fatura</h2>
+      <button (click)="showCard = false" class="text-gray-500 hover:text-red-600 text-xl">&times;</button>
+    </div>
+
+    <!-- Forms -->
+    <form class="space-y-4">
+
+      <!-- Provider -->
+      <div>
+        <label for="fornecedor" class="block mb-1 text-sm font-medium text-blue-950">Fornecedor</label>
+        <input type="text" id="fornecedor" placeholder="Digite o fornecedor"
+          class="w-full border text-gray-500 border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-950" />
+      </div>
+
+      <!-- Maturity -->
+      <div>
+        <label for="vencimento" class="block mb-1 text-sm font-medium text-blue-950">Vencimento</label>
+        <input type="date" id="vencimento"
+          class="w-full border text-gray-500 border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-950" />
+      </div>
+
+      <!-- Date sent -->
+      <div>
+        <label for="data_enviada" class="block mb-1 text-sm font-medium text-blue-950">Data Enviada</label>
+        <input type="date" id="data_enviada"
+          class="w-full border text-gray-500 border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-950" />
+      </div>
+
+      <!-- Status -->
+      <div>
+        <label for="status" class="block mb-1 text-sm font-medium text-blue-950">Status</label>
+        <select id="status"
+          class="w-full border text-gray-500 border-gray-300 rounded-lg px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-950">
+          <option value="">Selecione...</option>
+          <option value="Pago">Pago</option>
+          <option value="Pendente">Pendente</option>
+          <option value="Vencido">Vencido</option>
+          <option value="Cancelado">Cancelado</option>
+        </select>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex justify-end gap-4 pt-2">
+        <button type="button" class="px-5 py-2 rounded-xl bg-gray-200 hover:bg-gray-300 text-blue-950"
+          (click)="showCard = false">
+          Cancelar
+        </button>
+
+        <button type="submit" class="px-5 py-2 rounded-xl bg-blue-950 hover:bg-blue-900 text-white shadow-md">
+          Salvar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
