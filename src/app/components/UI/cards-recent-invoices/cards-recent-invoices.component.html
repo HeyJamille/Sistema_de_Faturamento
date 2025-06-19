@@ -1,20 +1,7 @@
-<section class="hidden md:block">
-  <div class="flex flex-row justify-between items-baseline my-6">
-    <h1 class="text-3xl font-extrabold text-blue-950">Faturas Recentes</h1>
-
-    <button type="button" (click)="openCard()"
-      class="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-500 text-blue-950 font-semibold px-5 py-2.5 rounded-xl shadow transition duration-300">
-      <img src="/assets/icons/plus.svg" alt="Adicionar" class="h-5 w-5" />
-      <span>Adicionar Fatura</span>
-    </button>
-  </div>
-
-  <!-- Componente do card -->
-  <app-register-cards></app-register-cards>
-
+<section>  
   <div class="overflow-x-auto">
     <table class="min-w-full bg-white rounded-2xl shadow-md overflow-hidden">
-      <thead class="bg-blue-950 text-white">
+      <thead class="bg-[#2f3f64] text-white">
         <tr>
           <th class="px-6 py-4 text-left text-sm font-semibold uppercase rounded-tl-2xl">
             Fornecedor
@@ -27,6 +14,9 @@
           </th>
           <th class="px-6 py-4 text-left text-sm font-semibold uppercase rounded-tr-2xl">
             Status
+          </th>
+          <th class="px-6 py-4 text-left text-sm font-semibold uppercase rounded-tr-2xl">
+            Ações
           </th>
         </tr>
       </thead>
@@ -50,6 +40,27 @@
               }">
               {{ data.status }}
             </span>
+          </td>
+
+          <!-- Ações -->
+          <td class="sm:px-6 py-4 flex gap-1 sm:gap-4">
+            <!-- Editar -->
+            <button 
+              type="button" 
+              (click)="edit(data)" 
+              class="p-2 rounded-full hover:bg-blue-100 transition"
+              title="Editar">
+              <img src="assets/icons/edit.svg" alt="Editar" class="w-5 h-5"/>
+            </button>
+
+            <!-- Excluir -->
+            <button 
+              type="button" 
+              (click)="delete(data)" 
+              class="p-2 rounded-full hover:bg-red-100 transition"
+              title="Excluir">
+              <img src="assets/icons/trash.svg" alt="Excluir" class="w-5 h-5"/>
+            </button>
           </td>
         </tr>
       </tbody>

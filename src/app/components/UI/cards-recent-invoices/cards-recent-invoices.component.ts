@@ -1,20 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RegisterCardsComponent } from "../register-cards/register-cards.component";
 
 @Component({
   selector: 'app-cards-recent-invoices',
-  imports: [CommonModule, FormsModule, RegisterCardsComponent],   
+  imports: [CommonModule, FormsModule],
   templateUrl: './cards-recent-invoices.component.html',
 })
 export class CardsRecentInvoicesComponent {
-  @ViewChild(RegisterCardsComponent) registerCard!: RegisterCardsComponent;
-
-  openCard() {
-    this.registerCard.showCard = true;
-  }
-
   datas = [
     {
       fornecedor: "Empresa A",
@@ -42,9 +35,34 @@ export class CardsRecentInvoicesComponent {
     },
     {
       fornecedor: "Empresa F",
+      vencimento: "20/06/2025",
+      data_enviada: "12/06/2025",
+      status: "Pendente"
+    },
+    {
+      fornecedor: "Empresa G",
+      vencimento: "25/06/2025",
+      data_enviada: "18/06/2025",
+      status: "Vencido"
+    },
+    {
+      fornecedor: "Empresa H",
       vencimento: "23/09/2025",
       data_enviada: "10/09/2025",
-      status: "Pago"
+      status: "Pendente"
     },
   ];
+
+  edit(data: any) {
+    console.log('Editar:', data);
+    // Aqui você abre um modal, formulário ou executa a lógica de edição
+  }
+
+  delete(data: any) {
+    const confirmDelete = confirm(`Deseja realmente excluir a fatura de ${data.fornecedor}?`);
+    if (confirmDelete) {
+      this.datas = this.datas.filter(item => item !== data);
+    }
+  }
+
 }

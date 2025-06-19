@@ -1,30 +1,30 @@
 <aside
-  class="pt-5 h-full bg-blue-950 text-gray-100 flex flex-col gap-10 p-4 shadow-xl transition-all duration-300"
+  class="fixed h-screen pt-5 bg-[#2f3f64] text-gray-100 flex flex-col gap-7 p-4 shadow-xl transition-all duration-500"
   [ngClass]="{ 'w-64 self-end': !isCollapsed, 'w-20': isCollapsed }">
 
   <!-- Logo -->
   <div class="flex justify-center">
-    <img src="assets/images/logo.png" alt="Logo" class="w-32 h-auto " />
+    <img src="assets/images/logo.png" alt="Logo" class="w-32 h-auto" />
   </div>
 
   <!-- Navigation -->
-  <nav class="flex flex-col gap-2">
-    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-900 transition">
-      <span class="text-xl hover:">🏠</span>
+  <nav class="flex flex-col">
+    <a href="/dashboard" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
+      <span class="self-center text-xl hover:">🏠</span>
       <span *ngIf="!isCollapsed" class="text-base font-medium">Dashboard</span>
     </a>
 
-    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-900 transition">
+    <a href="/faturas" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
       <span class="text-xl">📄</span>
       <span *ngIf="!isCollapsed" class="text-base font-medium">Faturas</span>
     </a>
 
-    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-900 transition">
+    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
       <span class="text-xl">👤</span>
       <span *ngIf="!isCollapsed" class="text-base font-medium">Fornecedores</span>
     </a>
 
-    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-900 transition">
+    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
       <span class="text-xl">⚙️</span>
       <span *ngIf="!isCollapsed" class="text-base font-medium">Solicitações de Compras</span>
     </a>
@@ -32,7 +32,7 @@
 
   <!-- Toggle Button -->
   <button (click)="toggleMenu()"
-    class="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-900 text-white"
+    class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400 text-white cursor-pointer"
     [ngClass]="{ 'rotate-180': isCollapsed }">
 
     <img class="h-7 w-7" src="assets/icons/arrow.svg" />
@@ -40,11 +40,9 @@
     <span *ngIf="!isCollapsed" class="text-base font-medium">Fechar Menu</span>
   </button>
 
-
-
   <!-- Footer -->
-  <div class="mt-auto pt-6 border-t border-blue-800">
-    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-blue-900 transition">
+  <div class="mt-auto pt-6 border-t border-amber-400">
+    <a href="/" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
       <span class="text-xl">🚪</span>
       <span *ngIf="!isCollapsed" class="text-base font-medium">Sair</span>
     </a>
