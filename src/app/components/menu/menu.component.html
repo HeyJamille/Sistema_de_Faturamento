@@ -1,16 +1,66 @@
-<aside
-  class="fixed h-screen pt-5 bg-[#2f3f64] text-gray-100 flex flex-col gap-7 p-4 shadow-xl transition-all duration-500"
-  [ngClass]="{ 'w-64 self-end': !isCollapsed, 'w-20': isCollapsed }">
+<!-- Mobile Header -->
+<header class="fixed top-0 w-full flex justify-between items-center p-5 bg-[#2f3f64] shadow-md sm:hidden z-50">
+  <!-- Logo -->
+  <div>
+    <img src="assets/images/logo.png" alt="Logo" class="h-14 w-auto" />
+  </div>
 
+  <!-- Menu Icon -->
+  <button 
+    (click)="toggleMenu()" 
+    aria-label="Abrir menu"
+    [attr.aria-expanded]="isMenuOpen"
+    class="w-7 h-7 cursor-pointer">
+    <img src="assets/icons/menu.svg" alt="Menu" />
+  </button>
+
+  <!-- Mobile Navigation -->
+  <nav
+    *ngIf="isMenuOpen"
+    class="absolute top-full left-0 w-full bg-[#2f3f64] flex flex-col gap-2 p-5 shadow-md z-50"
+    role="navigation"
+  >
+    <a href="/dashboard" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
+      <span class="text-xl">🏠</span>
+      <span class="text-base font-medium text-white">Dashboard</span>
+    </a>
+
+    <a href="/faturas" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
+      <span class="text-xl">📄</span>
+      <span class="text-base font-medium text-white">Faturas</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
+      <span class="text-xl">👤</span>
+      <span class="text-base font-medium text-white">Fornecedores</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
+      <span class="text-xl">⚙️</span>
+      <span class="text-base font-medium text-white">Solicitações</span>
+    </a>
+
+    <a href="/" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
+      <span class="text-xl">🚪</span>
+      <span class="text-base font-medium text-white">Sair</span>
+    </a>
+  </nav>
+</header>
+
+<!-- Desktop Sidebar -->
+<aside 
+  class="hidden sm:fixed sm:flex flex-col gap-7 p-4 h-screen top-0 left-0 bg-[#2f3f64] text-white shadow-xl z-50 transition-all duration-500"
+  [ngClass]="{ 'w-64': !isCollapsed, 'w-20': isCollapsed }"
+>
   <!-- Logo -->
   <div class="flex justify-center">
-    <img src="assets/images/logo.png" alt="Logo" class="w-32 h-auto" />
+    <img src="assets/images/logo.png" alt="Logo" class="h-auto w-32" />
   </div>
 
   <!-- Navigation -->
-  <nav class="flex flex-col">
+  <nav role="navigation" class="flex flex-col gap-2">
     <a href="/dashboard" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
-      <span class="self-center text-xl hover:">🏠</span>
+      <span class="text-xl">🏠</span>
       <span *ngIf="!isCollapsed" class="text-base font-medium">Dashboard</span>
     </a>
 
@@ -21,22 +71,22 @@
 
     <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
       <span class="text-xl">👤</span>
-      <span *ngIf="!isCollapsed" class="text-base font-medium">Fornecedores</span>
+      <span *ngIf="!isCollapsed" class="text-base font-medium ">Fornecedores</span>
     </a>
 
     <a href="#" class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400">
       <span class="text-xl">⚙️</span>
-      <span *ngIf="!isCollapsed" class="text-base font-medium">Solicitações de Compras</span>
+      <span *ngIf="!isCollapsed" class="text-base font-medium">Solicitações</span>
     </a>
   </nav>
 
-  <!-- Toggle Button -->
-  <button (click)="toggleMenu()"
+  <!-- Toggle Sidebar -->
+  <button
+    (click)="toggleSidebar()"
     class="flex items-center gap-4 p-3 rounded-lg hover:bg-amber-400 text-white cursor-pointer"
-    [ngClass]="{ 'rotate-180': isCollapsed }">
-
-    <img class="h-7 w-7" src="assets/icons/arrow.svg" />
-
+    [ngClass]="{ 'rotate-180': isCollapsed }"
+  >
+    <img src="assets/icons/arrow.svg" class="w-7 h-7" />
     <span *ngIf="!isCollapsed" class="text-base font-medium">Fechar Menu</span>
   </button>
 

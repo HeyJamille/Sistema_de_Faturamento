@@ -1,15 +1,19 @@
-<article>
-  <app-menu (collapsedChange)="isMenuCollapsed = $event" />
+<article class="flex flex-col">
+  <!-- Menu -->
+  <app-menu (collapsedChange)="isMenuCollapsed = $event"></app-menu>
 
+  <!-- Conteúdo -->
   <section
-    class="p-5 xl:px-10 bg-gray-100 min-h-screen"
-    [ngStyle]="{ 'margin-left': isMenuCollapsed ? '5rem' : '16rem' }"
+    class="p-5 xl:px-10 bg-gray-100 min-h-screen transition-all duration-500"
+    [ngClass]="{
+      'ml-0': isSmallScreen,                         
+      'ml-64': !isSmallScreen && !isMenuCollapsed,   
+      'ml-20': !isSmallScreen && isMenuCollapsed     
+    }"
   >
-
-  <!-- Components -->
     <app-header></app-header>
     <app-cards></app-cards>
-    <app-header-recent-envoices />
-    <app-cards-recent-invoices />
+    <app-header-recent-envoices></app-header-recent-envoices>
+    <app-cards-recent-invoices></app-cards-recent-invoices>
   </section>
 </article>

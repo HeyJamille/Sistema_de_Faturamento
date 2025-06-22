@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Components
@@ -12,5 +12,20 @@ import { HeaderRecentEnvoicesComponent } from "../../components/header-recent-en
   templateUrl: './envoices.component.html',
 })
 export class EnvoicesComponent {
-  isMenuCollapsed = false; // controll the space of layout menu
+  isSmallScreen = false; // menu mobile
+  isMenuCollapsed = false; // mobile desktop
+
+  ngOnInit() {
+    this.checkScreenSize();
+  }
+
+  // listens to window size changes and small screen updates in real time.
+  @HostListener('window:resize')
+  onResize() {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+    this.isSmallScreen = window.innerWidth < 640; // Tailwind 'sm' breakpoint
+  }
 }

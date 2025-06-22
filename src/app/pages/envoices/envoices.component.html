@@ -1,13 +1,18 @@
-<article>
+<section>
   <app-menu (collapsedChange)="isMenuCollapsed = $event"/>
 
-  <section
+  <!-- Conteúdo -->
+  <div
     class="p-5 xl:px-10 bg-gray-100 min-h-screen transition-all duration-500"
-    [ngStyle]="{ 'margin-left': isMenuCollapsed ? '5rem' : '16rem' }"
+    [ngClass]="{
+      'ml-0': isSmallScreen,                         
+      'ml-64': !isSmallScreen && !isMenuCollapsed,   
+      'ml-20': !isSmallScreen && isMenuCollapsed     
+    }"
   >
 
   <!-- Components -->
   <app-header-recent-envoices />
   <app-cards-recent-invoices />
-  </section>
-</article>
+  </div>
+</section>
